@@ -1,11 +1,12 @@
 import React from 'react';
-import { LogIn, Sparkles, Presentation, BookOpen, BarChart3, Globe } from 'lucide-react';
+import { LogIn, Sparkles, Presentation, BookOpen, BarChart3, Globe, Github } from 'lucide-react';
 
 interface NavbarProps {
   currentTab: 'catalog' | 'studio' | 'reports' | 'about';
   onSelectTab: (tab: 'catalog' | 'studio' | 'reports' | 'about') => void;
   onOpenJoinModal: () => void;
   onStartTeacherSession: () => void;
+  onOpenGitHubModal: () => void;
   isKazakh: boolean;
   onToggleLang: () => void;
 }
@@ -15,6 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onSelectTab,
   onOpenJoinModal,
   onStartTeacherSession,
+  onOpenGitHubModal,
   isKazakh,
   onToggleLang,
 }) => {
@@ -74,6 +76,16 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Zone 3: 1-2 primary actions */}
         <div className="flex items-center gap-3">
+          {/* GitHub action button */}
+          <button
+            onClick={onOpenGitHubModal}
+            className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors border border-slate-200"
+            title="GitHub репозиторийі және орнату"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">GitHub</span>
+          </button>
+
           {/* Language switcher */}
           <button
             onClick={onToggleLang}
@@ -105,3 +117,4 @@ export const Navbar: React.FC<NavbarProps> = ({
     </header>
   );
 };
+

@@ -10,6 +10,7 @@ import { TeacherDashboard } from './components/LivePlayer/TeacherDashboard';
 import { LessonEditor } from './components/LessonStudio/LessonEditor';
 import { SessionReports } from './components/Reports/SessionReports';
 import { AboutNearpod } from './components/AboutNearpod';
+import { GitHubExportModal } from './components/GitHubExportModal';
 
 type ViewMode = 'hub' | 'teacher_live' | 'student_live';
 type HubTab = 'catalog' | 'studio' | 'reports' | 'about';
@@ -46,6 +47,7 @@ export default function App() {
 
   // Modals
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+  const [isGitHubModalOpen, setIsGitHubModalOpen] = useState(false);
 
   // --- Handlers ---
   const handleOpenJoinModal = () => {
@@ -227,6 +229,7 @@ export default function App() {
         onSelectTab={setHubTab}
         onOpenJoinModal={handleOpenJoinModal}
         onStartTeacherSession={() => handleStartTeacherLive()}
+        onOpenGitHubModal={() => setIsGitHubModalOpen(true)}
         isKazakh={isKazakh}
         onToggleLang={() => setIsKazakh(!isKazakh)}
       />
@@ -312,6 +315,13 @@ export default function App() {
         isOpen={isJoinModalOpen}
         onClose={() => setIsJoinModalOpen(false)}
         onJoin={handleJoinByCode}
+        isKazakh={isKazakh}
+      />
+
+      {/* GitHub Deployment & Export Modal */}
+      <GitHubExportModal
+        isOpen={isGitHubModalOpen}
+        onClose={() => setIsGitHubModalOpen(false)}
         isKazakh={isKazakh}
       />
 
