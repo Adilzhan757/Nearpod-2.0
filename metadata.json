@@ -1,0 +1,6 @@
+{
+  "name": "Nearpod Interactive - Интерактивті оқыту платформасы",
+  "description": "Мұғалімдер мен оқушыларға арналған интерактивті сабақтар, Time to Climb викториналары, Collaborate Board және виртуалды саяхаттар алаңы.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
